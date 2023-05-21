@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 export default function ImageErrorView ({ message }) {
     return (
         <Wrapper role="alert">
-           
                 <Text>{message}</Text>
         </Wrapper>
     );
