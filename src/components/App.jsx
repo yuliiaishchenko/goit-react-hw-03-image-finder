@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
-
 import ImageGallery from './ImageGallery/ImageGallery';
+import { Layout } from './Layout/Layout';
 import { ToastContainer, Slide } from 'react-toastify';
-
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class App extends Component {
   state = {
@@ -20,9 +20,11 @@ export default class App extends Component {
     return (
       <>
       <Searchbar onSubmit={this.handleSubmit}/>
-      <>
-      <ImageGallery value={textSearch}/></>
-      <ToastContainer transition={Slide}/></>
+      <Layout>
+      <ImageGallery value={textSearch}/>
+      </Layout>
+      <ToastContainer transition={Slide}/>
+      </>
     );
   }
 }
