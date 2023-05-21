@@ -19,7 +19,7 @@ export default class Modal extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.handleBackdropeClick);
+        window.removeEventListener('keydown', this.handleBackdropClick);
     }
 
     handleKeyDown = e => {
@@ -28,7 +28,7 @@ export default class Modal extends Component {
         }
     };
 
-    handleBackdropeClick = e => {
+    handleBackdropClick = e => {
         if(e.target === e.currentTarget)  {
             this.props.onModalClose();
         }
@@ -38,7 +38,7 @@ export default class Modal extends Component {
         const { largeImageURL, tags } = this.props.modalData;
 
         return createPortal (
-            <ModalBackdrop onClick={this.handleBackdropeClick}>
+            <ModalBackdrop onClick={this.handleBackdropClick}>
                 <ModalContent>
                     <ModalPicture src={largeImageURL} alt={tags}/>
                     <ModalDescr>{tags}</ModalDescr>
