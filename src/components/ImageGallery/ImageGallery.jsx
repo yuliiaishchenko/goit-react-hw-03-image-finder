@@ -110,7 +110,7 @@ if (status === 'resolved'){
         <List>{images.map(image => (
             <ImageGalleryItem
             key = {image.id}
-            item = {image}
+            image = {image}
             onImageClick = {this.setModalData}/>
         ))}</List>
         {images.length > 0 && status !== 'pending' && page <= totalPages && 
