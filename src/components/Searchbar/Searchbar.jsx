@@ -20,14 +20,14 @@ export class Searchbar extends Component {
             return toast.info ('Please enter key words for search');
         }
         this.props.onSubmit(this.state.value);
-        this.setState({ value: ''});
+        this.setState({ value: '' });
     }
 
     render() {
         const { value }  = this.state;
         return ( 
             <Header>
-                <SearchForm>                   
+                <SearchForm onSubmit={this.handleSubmit}>                   
                     <SearchFormInput
                     type = "text"
                     autocomplete = "off"
