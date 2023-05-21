@@ -3,14 +3,18 @@ import React, {Component} from 'react';
 import imagesApi from 'services/getImages';
 import { Loader } from 'components/Loader/Loader';
 import { Button } from 'components/Button/Button';
-import { render } from '@testing-library/react';
+import { List } from './ImageGallery.styled';
+import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
+import ImageErrorView from 'components/ImageErrorView/ImageErrorView';
+import Modal from 'components/Modal/Modal';
+import { InitialStateGallery } from 'components/InitialStateGallery/InitialStateGallery';
 
 
 const Status = {
-    IDLE = 'idle',
-    PENDING = 'pending',
-    RESOLVED = 'resolved',
-    REJECTED = 'rejected',
+    IDLE : 'idle',
+    PENDING : 'pending',
+    RESOLVED : 'resolved',
+    REJECTED : 'rejected',
 };
 
 export default class ImageGallery extends Component {
@@ -59,7 +63,7 @@ componentDidUpdate(prevProps, prevState){
         }));
     }).catch(error => this.setState({ error, status: Status.REJECTED}));
 }
-}
+
 
 handleLoadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1}));
@@ -77,11 +81,11 @@ handleModalClose = () => {
     });
 };
 
-render() {
+render() { 
 const { images, error, status, page, totalPages, isShowModal, modalData } = this.state;
 
 if( status === 'idle') {
-    return <InitialStateGAllery text = "Let`s find images together!" />;
+    return <InitialStateGallery text = "Let`s find images together!" />;
 }
 
 if( status === 'pending') {
@@ -116,5 +120,6 @@ if (status === 'resolved'){
         )}
         </>
     );
+}
 }
 }
