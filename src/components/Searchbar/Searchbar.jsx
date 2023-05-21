@@ -26,16 +26,16 @@ export class Searchbar extends Component {
         const { value }  = this.state;
         return ( 
             <Header>
-                <SearchForm>
-                    <SearchFormButton/>
+                <SearchForm>                   
                     <SearchFormInput
                     type = "text"
                     autocomplete = "off"
+                    autoFocus
                     placeholder = "Search images and photos"
                     value = {value}
                     onChange ={this.handleChange}
-                    />            
-
+                    />  
+                     <SearchFormButton/>       
                 </SearchForm>
             </Header>
         );
