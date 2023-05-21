@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import imagesAPI from '../services/getImages';
+import { fetchImages } from '../services/getImages';
 import { Loader } from 'components/Loader/Loader';
 import { Button } from 'components/Button/Button';
 import { List } from './ImageGallery.styled';
@@ -54,7 +54,7 @@ componentDidUpdate(prevProps, prevState){
         this.setState({ error: null});
     }
 
-    imagesAPI.getImages(nextValue, page).then(images => {
+    fetchImages.getImages(nextValue, page).then(images => {
         this.setState(prevState => ({
             images:
             page === 1 ? images.hits : [...prevState.images, ...images.hits],
