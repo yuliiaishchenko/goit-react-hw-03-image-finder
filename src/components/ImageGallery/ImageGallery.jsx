@@ -69,7 +69,8 @@ componentDidUpdate(prevProps, prevState){
 
 
 handleLoadMore = () => {
-    this.setState(prevState => ({ page: prevState.page + 1}));
+    this.setState(prevState => ({ 
+        page: prevState.page + 1,}));
     };
 
 setModalData = modalData => {
