@@ -30,6 +30,7 @@ export default class ImageGallery extends Component {
 
         page: 1,
         totalPages: 0,
+        showButtonMore: true,
 
         isShowModal: false,
         modalData: {img: '', tags: ''},
@@ -84,7 +85,7 @@ handleModalClose = () => {
 };
 
 render() { 
-const { images, error, status, page, totalPages, isShowModal, modalData } = this.state;
+const { images, error, status, page, totalPages, isShowModal, modalData} = this.state;
 
 if( status === 'idle') {
     return <InitialStateGallery text = "Let`s find images together!" />;
@@ -115,8 +116,8 @@ if (status === 'resolved'){
             item = {image}
             onImageClick = {this.setModalData}/>
         ))}</List>
-        {images.length > 0 && status !== 'pending' && page <= totalPages && 
-        (<Button onClick={this.handleLoadMore}>Load more</Button>)}
+        {images.length > 0 && status !== 'pending' && page <= totalPages &&
+        (<Button  onClick={this.handleLoadMore}>Load more</Button>)}
         {isShowModal && ( <Modal modalData={modalData} 
         onModalClose={this.handleModalClose}/>
         )}
